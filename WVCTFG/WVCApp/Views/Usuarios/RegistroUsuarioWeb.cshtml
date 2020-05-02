@@ -1,0 +1,125 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Page Title - SB Admin</title>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        function deshabilitarRepresentante ()
+        {
+            document.getElementById('cedulaRep').readOnly = true;
+            document.getElementById('nombreRep').readOnly = true;
+            document.getElementById('correoRep').readOnly = true;
+        }
+
+        function habilitarRepresentante()
+        {
+            if (document.getElementById("habilitaRep").checked){
+                document.getElementById('cedulaRep').readOnly = false;
+                document.getElementById('nombreRep').readOnly = false;
+                document.getElementById('correoRep').readOnly = false;
+            }
+            else {
+                document.getElementById('cedulaRep').readOnly = true;
+                document.getElementById('nombreRep').readOnly = true;
+                document.getElementById('correoRep').readOnly = true;
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary" onload="deshabilitarRepresentante();">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Crear nuevo usuario</h3></div>
+                                <div class="card-body">
+                                    <form>
+
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="tipoCedula">Tipo de cedula</label>
+                                                    <select class="form-control formlabel" id="tipoCedula">
+                                                        <option disabled selected>Seleccionar tipo cedula</option>
+                                                        <option>Fisica</option>
+                                                        <option>Juridica</option>
+                                                        <option>Otro</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="cedula">Cedula</label><input class="form-control py-4" id="cedula" type="text" placeholder="Ingrese la cedula"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="nombre">Nombre completo</label><input class="form-control py-4" id="nombre" type="text" placeholder="Ingrese el nombre completo"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="nombre">Telefono principal</label><input class="form-control py-4" id="telefono" type="text" placeholder="Ingrese el telefono"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="correo">Correo electronico</label><input class="form-control py-4" id="correo" type="email" placeholder="Ingrese el correo electronico"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="password">Contrasena</label><input class="form-control py-4" id="pasword" type="password" placeholder="Ingrese la contrasena"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group" style="padding-bottom: 0em;">
+                                                    <div class="custom-control custom-checkbox" style="padding-top: 2.8em;"><input class="custom-control-input" id="habilitaRep" type="checkbox" onchange="habilitarRepresentante();" /><label class="custom-control-label formlabel" for="habilitaRep">Registrar representante</label></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="cedulaRep">Cedula Representante</label><input class="form-control py-4" id="cedulaRep" type="text" enable="false" placeholder="Ingrese la cedula representante" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="nombreRep">Nombre Representante</label><input class="form-control py-4" id="nombreRep" type="text" placeholder="Ingrese el nombre completo" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="emailRep">Correo representante</label><input class="form-control py-4" id="correoRep" type="text" placeholder="Ingrese el correo del representante" />
+                                                </div>
+                                                <div class="form-group" style="padding-top: 4.8em;"></div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1 formlabel" for="password2">Confirmar contrasena</label><input class="form-control py-4" id="password2" type="text" placeholder="Confirmar contrasena" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="@Url.Action("Index", "Login")">Crear cuenta</a></div>
+                                    </form>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="small"><a href="@Url.Action("Index","Login")">Ingreso al sistema</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="layoutAuthentication_footer">
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy;Todos los derechos reservados. 2020</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/scripts.js"></script>
+</body>
+</html>
